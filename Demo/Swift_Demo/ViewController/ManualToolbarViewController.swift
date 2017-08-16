@@ -29,8 +29,8 @@ class ManualToolbarViewController : UIViewController, UIPopoverPresentationContr
 
         textView3.addPreviousNextDoneOnKeyboardWithTarget(self, previousAction: #selector(self.previousAction(_:)), nextAction: #selector(self.nextAction(_:)), doneAction: #selector(self.doneAction(_:)), shouldShowPlaceholder: true)
 
-        textField4.setTitleTarget(self, action: #selector(self.titleAction(_:)))
-        textField4.placeholderText = "Saved Passwords"
+        textField4.keyboardToolbar.titleBarButton.setTarget(self, action: #selector(self.titleAction(_:)))
+        textField4.toolbarPlaceholder = "Saved Passwords"
         textField4.addDoneOnKeyboardWithTarget(self, action: #selector(self.doneAction(_:)), shouldShowPlaceholder: true)
 
         textField5.inputAccessoryView = UIView()
