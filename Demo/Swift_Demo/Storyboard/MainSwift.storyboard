@@ -10,12 +10,12 @@
         <!--TextField Demo-->
         <scene sceneID="kAr-5b-4Sn">
             <objects>
-                <viewController storyboardIdentifier="TextFieldViewController" id="csO-qF-Ohn" customClass="TextFieldViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TextFieldViewController" id="csO-qF-Ohn" customClass="TextFieldViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8LL-IX-XKh"/>
                         <viewControllerLayoutGuide type="bottom" id="Hvg-GD-iUW"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="i84-jm-CzI" customClass="IQPreviousNextView">
+                    <view key="view" contentMode="scaleToFill" id="i84-jm-CzI" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -114,7 +114,7 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nry-4j-VcI" customClass="IQTextView">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nry-4j-VcI" customClass="IQTextView" customModule="IQKeyboardManagerSwift">
                                         <rect key="frame" x="20" y="10" width="280" height="35"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.47692340353260865" green="0.013985326711680755" blue="0.039278733763664801" alpha="1" colorSpace="calibratedRGB"/>
@@ -126,6 +126,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="IQTextView for placeholder support"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="csO-qF-Ohn" id="pDT-l9-8GW"/>
+                                        </connections>
                                     </textView>
                                 </subviews>
                                 <constraints>
@@ -287,6 +290,7 @@
                         <outlet property="buttonPush" destination="Tt5-47-EvZ" id="OaH-l9-8QM"/>
                         <outlet property="dropDownTextField" destination="z7r-JB-8xa" id="lNo-Ce-mO7"/>
                         <outlet property="textField3" destination="f9i-hv-EJj" id="DBN-J6-duh"/>
+                        <outlet property="textView1" destination="Nry-4j-VcI" id="nJ9-Rh-icS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLS-w0-J9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -336,7 +340,7 @@
         <!--Table View In Container View Controller-->
         <scene sceneID="Md9-V5-6d7">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="M0Y-Zn-cGg" customClass="TableViewInContainerViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="M0Y-Zn-cGg" customClass="TableViewInContainerViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zVV-op-k5o"/>
                         <viewControllerLayoutGuide type="bottom" id="I9o-gU-YIM"/>
@@ -389,7 +393,7 @@
         <!--UITableView Example-->
         <scene sceneID="7Nm-04-fgV">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="TgE-bl-CyE" customClass="ExampleTableViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="TgE-bl-CyE" customClass="ExampleTableViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VQQ-14-TiQ"/>
                         <viewControllerLayoutGuide type="bottom" id="3z8-RD-OcT"/>
@@ -457,7 +461,7 @@
         <!--Manual UIToolbar-->
         <scene sceneID="EHW-3w-JeB">
             <objects>
-                <viewController id="BmV-Mf-VMv" customClass="ManualToolbarViewController" sceneMemberID="viewController">
+                <viewController id="BmV-Mf-VMv" customClass="ManualToolbarViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h8J-UR-aMH"/>
                         <viewControllerLayoutGuide type="bottom" id="5b8-da-c9z"/>
@@ -585,7 +589,7 @@ textField.inputAcessoryView = [[UIView alloc] init];</string>
         <!--UIScrollView Example-->
         <scene sceneID="ipE-dg-0Gf">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="0gz-x6-ylR" customClass="ScrollViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="0gz-x6-ylR" customClass="ScrollViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d1F-z5-83c"/>
                         <viewControllerLayoutGuide type="bottom" id="NFI-d4-hq2"/>
@@ -857,10 +861,10 @@ textField.inputAcessoryView = [[UIView alloc] init];</string>
             </objects>
             <point key="canvasLocation" x="-3679" y="218"/>
         </scene>
-        <!--IQKeyboardManager-->
+        <!--IQKeyboardManager Swift-->
         <scene sceneID="Xza-yV-m9m">
             <objects>
-                <tableViewController id="qiC-Ru-K2t" customClass="ViewController" sceneMemberID="viewController">
+                <tableViewController id="qiC-Ru-K2t" customClass="ViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZY3-cN-UCS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1402,23 +1406,23 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                                             <segue destination="dPG-sk-vRY" kind="push" id="msk-OU-pqX"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="g3x-ph-jFA" detailTextLabel="c1S-nC-oPc" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="Chz-F0-TK9">
-                                        <rect key="frame" x="0.0" y="1571" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ZjP-27-Ilh" detailTextLabel="xCQ-dY-OH7" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="i8C-W4-b24">
+                                        <rect key="frame" x="0.0" y="1571" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Chz-F0-TK9" id="4rZ-XR-CU4">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i8C-W4-b24" id="qjo-gH-5lw">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="StackView" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g3x-ph-jFA">
-                                                    <rect key="frame" x="15" y="7" width="78" height="18"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="StackView" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZjP-27-Ilh">
+                                                    <rect key="frame" x="15" y="25" width="78" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="UIStackView example in iOS9" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c1S-nC-oPc">
-                                                    <rect key="frame" x="15" y="25" width="151" height="12"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="UIStackView example in iOS9" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xCQ-dY-OH7">
+                                                    <rect key="frame" x="15" y="43" width="151" height="12"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1428,11 +1432,11 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="lIM-v7-78w" kind="push" id="OcN-T6-MYB"/>
+                                            <segue destination="YRO-UT-ZQ4" kind="push" id="YNt-fF-g7F"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NXV-ww-IIT" detailTextLabel="UrJ-gz-Axr" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="mmm-pn-XIG">
-                                        <rect key="frame" x="0.0" y="1615" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="1651" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mmm-pn-XIG" id="qZC-7h-CV3">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
@@ -1462,7 +1466,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Uae-6t-6Sj" detailTextLabel="58p-7P-t8z" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="bMd-Bf-n21">
-                                        <rect key="frame" x="0.0" y="1675" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="1711" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bMd-Bf-n21" id="pKj-nA-uRL">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -1490,14 +1494,14 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                                             <segue destination="IHN-1B-3KS" kind="push" id="w9d-sW-tRh"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="lwC-Rr-cEx" detailTextLabel="Q9O-0Z-MkV" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="3TE-Lz-jBY">
-                                        <rect key="frame" x="0.0" y="1719" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="d9i-xB-woo" detailTextLabel="Tl6-Ui-Twv" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="rxh-ko-lZ1">
+                                        <rect key="frame" x="0.0" y="1755" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3TE-Lz-jBY" id="jnm-nz-ifs">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rxh-ko-lZ1" id="BtC-F5-KQx">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="UISearchController" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lwC-Rr-cEx">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="UISearchController" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d9i-xB-woo">
                                                     <rect key="frame" x="15" y="7" width="141" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1505,7 +1509,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Search Controller" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q9O-0Z-MkV">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Search Controller" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tl6-Ui-Twv">
                                                     <rect key="frame" x="15" y="25" width="91" height="12"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
@@ -1516,7 +1520,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="hlh-p3-uIe" kind="push" id="WnC-bl-TlZ"/>
+                                            <segue destination="Uyo-uK-VRw" kind="push" id="yqo-ew-1Nc"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1527,7 +1531,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                             <outlet property="delegate" destination="qiC-Ru-K2t" id="gaA-Kl-Iw8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="IQKeyboardManager" id="Hlx-yG-A8d">
+                    <navigationItem key="navigationItem" title="IQKeyboardManager Swift" id="Hlx-yG-A8d">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="action" id="NDm-2S-SBG">
                             <connections>
                                 <action selector="shareClicked:" destination="qiC-Ru-K2t" id="IPv-w7-R9w"/>
@@ -1561,13 +1565,13 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
         <!--Settings-->
         <scene sceneID="zPq-Kx-aQ0">
             <objects>
-                <tableViewController id="a61-Vn-sFg" customClass="SettingsViewController" sceneMemberID="viewController">
+                <tableViewController id="a61-Vn-sFg" customClass="SettingsViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="55" sectionHeaderHeight="10" sectionFooterHeight="10" id="8WJ-D7-NuE">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="488"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SwitchTableViewCell" rowHeight="51" id="BH8-6z-hDi" customClass="SwitchTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SwitchTableViewCell" rowHeight="51" id="BH8-6z-hDi" customClass="SwitchTableViewCell" customModule="DemoSwift">
                                 <rect key="frame" x="0.0" y="114" width="300" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BH8-6z-hDi" id="x8b-js-0t7">
@@ -1620,7 +1624,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                                     <outlet property="switchEnable" destination="Xeq-4g-lfL" id="5oE-Vx-NHl"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="StepperTableViewCell" rowHeight="81" id="TxC-o3-T92" customClass="StepperTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="StepperTableViewCell" rowHeight="81" id="TxC-o3-T92" customClass="StepperTableViewCell" customModule="DemoSwift">
                                 <rect key="frame" x="0.0" y="165" width="300" height="81"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TxC-o3-T92" id="ICa-uJ-RIh">
@@ -1693,7 +1697,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                                     <outlet property="stepper" destination="xBR-Xp-YVU" id="ZW9-Zq-hIb"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NavigationTableViewCell" rowHeight="51" id="nwM-SI-X1M" customClass="NavigationTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NavigationTableViewCell" rowHeight="51" id="nwM-SI-X1M" customClass="NavigationTableViewCell" customModule="DemoSwift">
                                 <rect key="frame" x="0.0" y="246" width="300" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nwM-SI-X1M" id="Yht-CB-6e6">
@@ -1741,7 +1745,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                                     <segue destination="ZXU-ko-Wbd" kind="push" identifier="OptionsViewController" id="YX0-r2-pls"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ColorTableViewCell" rowHeight="51" id="xGu-vX-pu8" customClass="ColorTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ColorTableViewCell" rowHeight="51" id="xGu-vX-pu8" customClass="ColorTableViewCell" customModule="DemoSwift">
                                 <rect key="frame" x="0.0" y="297" width="300" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xGu-vX-pu8" id="XS6-Tg-6O3">
@@ -1796,7 +1800,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                                     <outlet property="labelTitle" destination="gbI-Y1-o9F" id="xX0-Ux-beI"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextFieldTableViewCell" rowHeight="86" id="b2w-cq-Hy9" customClass="TextFieldTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextFieldTableViewCell" rowHeight="86" id="b2w-cq-Hy9" customClass="TextFieldTableViewCell" customModule="DemoSwift">
                                 <rect key="frame" x="0.0" y="348" width="300" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b2w-cq-Hy9" id="2vY-XI-2wJ">
@@ -1852,7 +1856,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                                     <outlet property="textField" destination="t1e-qa-Oui" id="h84-pQ-kLF"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImageSwitchTableViewCell" rowHeight="69" id="O5v-R6-FQk" customClass="ImageSwitchTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImageSwitchTableViewCell" rowHeight="69" id="O5v-R6-FQk" customClass="ImageSwitchTableViewCell" customModule="DemoSwift">
                                 <rect key="frame" x="0.0" y="434" width="300" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O5v-R6-FQk" id="Yrs-Of-HsX">
@@ -1936,7 +1940,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
         <!--Options-->
         <scene sceneID="KAM-fd-clq">
             <objects>
-                <tableViewController id="ZXU-ko-Wbd" customClass="OptionsViewController" sceneMemberID="viewController">
+                <tableViewController id="ZXU-ko-Wbd" customClass="OptionsViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="18" sectionFooterHeight="18" id="0zd-6T-nzy">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="488"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2389,7 +2393,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
         <!--Navigation Bar-->
         <scene sceneID="4DZ-Zn-3Xg">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Trg-4t-Fsg" customClass="NavigationBarViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Trg-4t-Fsg" customClass="NavigationBarViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BYC-B8-hEJ"/>
                         <viewControllerLayoutGuide type="bottom" id="yRU-58-PHw"/>
@@ -2430,7 +2434,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                                 <rect key="frame" x="20" y="557" width="280" height="30"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LOI-el-lXZ">
                                 <rect key="frame" x="251" y="257" width="51" height="31"/>
@@ -2537,7 +2541,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
         <!--Special Cases-->
         <scene sceneID="H0c-gk-sJO">
             <objects>
-                <viewController id="dPG-sk-vRY" customClass="SpecialCaseViewController" sceneMemberID="viewController">
+                <viewController id="dPG-sk-vRY" customClass="SpecialCaseViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xrd-9U-ra6"/>
                         <viewControllerLayoutGuide type="bottom" id="exx-0d-gho"/>
@@ -2801,7 +2805,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
         <!--UIWebView Example-->
         <scene sceneID="MtW-0i-ACI">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="JDM-Xg-93g" customClass="WebViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="JDM-Xg-93g" customClass="WebViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Vl-S4-Maz"/>
                         <viewControllerLayoutGuide type="bottom" id="DT1-ib-9DU"/>
@@ -2810,36 +2814,20 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8bu-NR-xhG">
-                                <rect key="frame" x="20" y="84" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="enb-ZG-DIS">
-                                <rect key="frame" x="0.0" y="134" width="320" height="364"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="JDM-Xg-93g" id="7kX-b0-eCJ"/>
                                 </connections>
                             </webView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2uI-gz-Tn0">
-                                <rect key="frame" x="20" y="518" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="enb-ZG-DIS" secondAttribute="bottom" id="85j-ru-GwA"/>
                             <constraint firstAttribute="trailing" secondItem="enb-ZG-DIS" secondAttribute="trailing" id="8b5-IU-QXQ"/>
-                            <constraint firstItem="2uI-gz-Tn0" firstAttribute="top" secondItem="enb-ZG-DIS" secondAttribute="bottom" constant="20" id="Add-YZ-Sg1"/>
-                            <constraint firstItem="8bu-NR-xhG" firstAttribute="leading" secondItem="XOS-eg-1xO" secondAttribute="leading" constant="20" id="Gby-0b-hBY"/>
-                            <constraint firstItem="2uI-gz-Tn0" firstAttribute="leading" secondItem="8bu-NR-xhG" secondAttribute="leading" id="KNq-C5-4mq"/>
-                            <constraint firstItem="8bu-NR-xhG" firstAttribute="top" secondItem="XOS-eg-1xO" secondAttribute="top" constant="84" id="R0c-u4-eSO"/>
-                            <constraint firstItem="2uI-gz-Tn0" firstAttribute="trailing" secondItem="8bu-NR-xhG" secondAttribute="trailing" id="T6h-Ff-pOu"/>
-                            <constraint firstAttribute="bottom" secondItem="2uI-gz-Tn0" secondAttribute="bottom" constant="20" id="ePu-3h-AoQ"/>
-                            <constraint firstItem="enb-ZG-DIS" firstAttribute="top" secondItem="8bu-NR-xhG" secondAttribute="bottom" constant="20" id="fEW-Pw-V9W"/>
                             <constraint firstItem="enb-ZG-DIS" firstAttribute="leading" secondItem="XOS-eg-1xO" secondAttribute="leading" id="gKC-Qt-fme"/>
-                            <constraint firstAttribute="trailing" secondItem="8bu-NR-xhG" secondAttribute="trailing" constant="20" id="mBK-6Z-PhV"/>
+                            <constraint firstItem="enb-ZG-DIS" firstAttribute="top" secondItem="XOS-eg-1xO" secondAttribute="top" constant="64" id="xuE-Eu-9Zr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="UIWebView Example" id="3s1-JL-XZo"/>
@@ -2854,7 +2842,7 @@ A UITableView as a child of UIViewController embedded in the storyboard using a 
         <!--UITextView-->
         <scene sceneID="5Hs-En-g8p">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Z1T-rR-mis" customClass="TextViewSpecialCaseViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Z1T-rR-mis" customClass="TextViewSpecialCaseViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cOQ-HG-ZPw"/>
                         <viewControllerLayoutGuide type="bottom" id="RMa-sD-orI"/>
@@ -3011,7 +2999,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <!--UITextView Selection (#56)-->
         <scene sceneID="YZ2-k6-VeM">
             <objects>
-                <viewController id="IHN-1B-3KS" customClass="TextSelectionViewController" sceneMemberID="viewController">
+                <viewController id="IHN-1B-3KS" customClass="TextSelectionViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lvc-g9-BXs"/>
                         <viewControllerLayoutGuide type="bottom" id="SFH-qe-guB"/>
@@ -3024,8 +3012,8 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 <rect key="frame" x="0.0" y="64" width="320" height="404"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="IHN-1B-3KS" id="6WI-jf-wLa"/>
-                                    <outlet property="delegate" destination="IHN-1B-3KS" id="APq-5w-QV1"/>
+                                    <outlet property="dataSource" destination="IHN-1B-3KS" id="iEe-MF-SUD"/>
+                                    <outlet property="delegate" destination="IHN-1B-3KS" id="gCV-2g-4Jh"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3Z-yn-ZlL">
@@ -3100,7 +3088,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <!--Bottom Blank Space-->
         <scene sceneID="aFm-eY-zW9">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="d7w-1F-KeR" customClass="BottomBlankSpaceViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="d7w-1F-KeR" customClass="BottomBlankSpaceViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="svb-YB-j25"/>
                         <viewControllerLayoutGuide type="bottom" id="VJB-Uz-3oI"/>
@@ -3176,7 +3164,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <!--UICollectionView-->
         <scene sceneID="nN9-Jc-MTo">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="QIM-iU-H2P" customClass="CollectionViewDemoController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="QIM-iU-H2P" customClass="CollectionViewDemoController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4fO-JK-5dr"/>
                         <viewControllerLayoutGuide type="bottom" id="g3o-wM-alT"/>
@@ -3250,7 +3238,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <!--CustomView Demo-->
         <scene sceneID="MYw-ck-tPn">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="P54-QV-iJ7" customClass="CustomViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="P54-QV-iJ7" customClass="CustomViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ODL-PO-Miv"/>
                         <viewControllerLayoutGuide type="bottom" id="4kg-q0-YW6"/>
@@ -3259,7 +3247,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLB-dv-85O" customClass="IQPreviousNextView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLB-dv-85O" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                                 <rect key="frame" x="10" y="100" width="300" height="458"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oad-Sj-fOj">
@@ -3618,7 +3606,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <!--YYTextView-->
         <scene sceneID="YlM-pO-Dsf">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="GoH-hw-EC4" customClass="YYTextViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="GoH-hw-EC4" customClass="YYTextViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c2y-As-LKs"/>
                         <viewControllerLayoutGuide type="bottom" id="fJC-2W-cGq"/>
@@ -3657,7 +3645,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <!--Refresh Layout-->
         <scene sceneID="xwo-NM-LMf">
             <objects>
-                <viewController id="GmF-d8-zCq" customClass="RefreshLayoutViewController" sceneMemberID="viewController">
+                <viewController id="GmF-d8-zCq" customClass="RefreshLayoutViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cv7-in-T0D"/>
                         <viewControllerLayoutGuide type="bottom" id="9qw-st-jQc"/>
@@ -3713,7 +3701,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <!--IQLayoutGuideConstraint-->
         <scene sceneID="DEZ-Da-Bjh">
             <objects>
-                <viewController id="9Ox-Ob-c9A" customClass="LayoutGuideViewController" sceneMemberID="viewController">
+                <viewController id="9Ox-Ob-c9A" customClass="LayoutGuideViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Juh-Tq-8dG"/>
                         <viewControllerLayoutGuide type="bottom" id="6ep-OI-jKN"/>
@@ -3758,7 +3746,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <!--ChatViewController-->
         <scene sceneID="00a-mk-AdB">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ROq-V5-UM7" customClass="ChatViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ROq-V5-UM7" customClass="ChatViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dOl-HW-DWO"/>
                         <viewControllerLayoutGuide type="bottom" id="mlK-f8-RJL"/>
@@ -3771,14 +3759,14 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 <rect key="frame" x="0.0" y="64" width="320" height="454"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="77" id="Kmb-NN-L06" customClass="ChatTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="77" id="Kmb-NN-L06" customClass="ChatTableViewCell" customModule="DemoSwift">
                                         <rect key="frame" x="0.0" y="28" width="320" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kmb-NN-L06" id="i5P-y2-Cfm">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is demo text chat. Enter your message and hit `Send` to add more chat." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sol-z8-S9k" customClass="ChatLabel">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is demo text chat. Enter your message and hit `Send` to add more chat." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sol-z8-S9k" customClass="ChatLabel" customModule="DemoSwift">
                                                     <rect key="frame" x="70" y="10" width="235" height="57"/>
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -3860,7 +3848,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <!--TextViewController-->
         <scene sceneID="MpH-Uf-nZC">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="P7P-UN-ggT" customClass="TextFieldViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="P7P-UN-ggT" customClass="TextViewController" customModule="DemoSwift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GkE-p4-pKx"/>
                         <viewControllerLayoutGuide type="bottom" id="EOa-wF-kil"/>
@@ -3895,57 +3883,57 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
             <point key="canvasLocation" x="3529" y="218"/>
         </scene>
         <!--UIStackView Example-->
-        <scene sceneID="Y2r-p6-7s9">
+        <scene sceneID="JHr-Gm-rEe">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="lIM-v7-78w" sceneMemberID="viewController">
+                <viewController id="YRO-UT-ZQ4" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VMV-ul-4sp"/>
-                        <viewControllerLayoutGuide type="bottom" id="8bS-rD-EKh"/>
+                        <viewControllerLayoutGuide type="top" id="sPQ-h9-XWH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wds-GR-zG4"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Unt-Xa-q3W">
+                    <view key="view" contentMode="scaleToFill" id="Z4L-JQ-TOx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="q8w-dL-XdB">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="RTI-Jt-RCr">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KLd-04-vg8">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xXh-lN-YLb">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jzb-7y-b3k">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KeS-ga-mLZ">
                                         <rect key="frame" x="0.0" y="79" width="320" height="30"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgq-Ad-b5S">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7UF-5C-CGF">
                                         <rect key="frame" x="0.0" y="158" width="320" height="30"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DDj-bQ-B5i">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zZt-8j-tVc">
                                         <rect key="frame" x="0.0" y="237" width="320" height="30"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mvH-5I-H8N">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pcm-D0-qwH">
                                         <rect key="frame" x="0.0" y="316" width="320" height="30"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U0R-r1-HfX">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xt7-vM-CCX">
                                         <rect key="frame" x="0.0" y="395" width="320" height="30"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Q4-ED-p5y">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wpc-ra-8AP">
                                         <rect key="frame" x="0.0" y="474" width="320" height="30"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -3956,36 +3944,46 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="q8w-dL-XdB" secondAttribute="bottom" id="I0Q-l9-Vik"/>
-                            <constraint firstItem="q8w-dL-XdB" firstAttribute="leading" secondItem="Unt-Xa-q3W" secondAttribute="leading" id="O0S-AA-eyu"/>
-                            <constraint firstAttribute="trailing" secondItem="q8w-dL-XdB" secondAttribute="trailing" id="sPB-YA-Jao"/>
-                            <constraint firstItem="q8w-dL-XdB" firstAttribute="top" secondItem="Unt-Xa-q3W" secondAttribute="top" constant="64" id="vjH-TV-eBJ"/>
+                            <constraint firstAttribute="bottom" secondItem="RTI-Jt-RCr" secondAttribute="bottom" id="KFm-xO-roO"/>
+                            <constraint firstItem="RTI-Jt-RCr" firstAttribute="top" secondItem="Z4L-JQ-TOx" secondAttribute="top" constant="64" id="XJ8-hf-dcc"/>
+                            <constraint firstAttribute="trailing" secondItem="RTI-Jt-RCr" secondAttribute="trailing" id="Y5m-uX-ict"/>
+                            <constraint firstItem="RTI-Jt-RCr" firstAttribute="leading" secondItem="Z4L-JQ-TOx" secondAttribute="leading" id="km8-M0-Sn7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="UIStackView Example" id="b4L-eW-cEa"/>
+                    <navigationItem key="navigationItem" title="UIStackView Example" id="5bB-ml-jeh"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sQr-G0-Esr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="90Y-FK-8cT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3932" y="217"/>
+            <point key="canvasLocation" x="3897" y="218"/>
         </scene>
         <!--UISearchController-->
-        <scene sceneID="CVj-Wb-f5Y">
+        <scene sceneID="Jf9-H9-rgZ">
             <objects>
-                <tableViewController id="hlh-p3-uIe" customClass="SearchViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9ve-I9-oEj">
+                <tableViewController id="Uyo-uK-VRw" customClass="SearchViewController" customModule="DemoSwift" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PXa-ky-S8S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" id="Tsg-oa-dAb">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tsg-oa-dAb" id="cHS-g7-mzs">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="hlh-p3-uIe" id="f0H-Ks-E8T"/>
-                            <outlet property="delegate" destination="hlh-p3-uIe" id="a8F-lD-fT3"/>
+                            <outlet property="dataSource" destination="Uyo-uK-VRw" id="v5V-1N-MwM"/>
+                            <outlet property="delegate" destination="Uyo-uK-VRw" id="yNM-bS-6gX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="UISearchController" id="PmA-9G-8fd"/>
+                    <navigationItem key="navigationItem" title="UISearchController" id="Mwt-UZ-zGD"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BE0-zn-cwg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s20-0d-ecu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4359" y="217"/>
+            <point key="canvasLocation" x="4350" y="217"/>
         </scene>
     </scenes>
     <resources>
@@ -4000,6 +3998,6 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
     <inferredMetricsTieBreakers>
         <segue reference="jwk-m7-IpJ"/>
         <segue reference="aWb-8P-5BY"/>
-        <segue reference="NDq-rq-knb"/>
+        <segue reference="l34-ps-MjR"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -24,12 +24,15 @@
 
 import UIKit
 
+private var kIQToolbarTitleInvocationTarget     = "kIQToolbarTitleInvocationTarget"
+private var kIQToolbarTitleInvocationSelector   = "kIQToolbarTitleInvocationSelector"
+
 /** @abstract   IQToolbar for IQKeyboardManager.    */
 open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
 
-    private static var _classInitialize: Void = classInitialize()
-    
-    private class func classInitialize() {
+    override open class func initialize() {
+        
+        superclass()?.initialize()
                 
         self.appearance().barTintColor = nil
         
@@ -48,80 +51,87 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
         self.appearance().backgroundColor = nil
     }
     
-    /**
-     Previous bar button of toolbar.
-     */
-    private var privatePreviousBarButton: IQBarButtonItem?
-    open var previousBarButton : IQBarButtonItem {
-        get {
-            if privatePreviousBarButton == nil {
-                privatePreviousBarButton = IQBarButtonItem(image: nil, style: .plain, target: nil, action: nil)
-                privatePreviousBarButton?.accessibilityLabel = "Toolbar Previous Button"
-            }
-            return privatePreviousBarButton!
-        }
+    open var titleFont : UIFont? {
         
-        set (newValue) {
-            privatePreviousBarButton = newValue
+        didSet {
+            
+            if let newItems = items {
+                for item in newItems {
+                    
+                    if let newItem = item as? IQTitleBarButtonItem {
+                        newItem.font = titleFont
+                        break
+                    }
+                }
+            }
         }
     }
     
-    /**
-     Next bar button of toolbar.
-     */
-    private var privateNextBarButton: IQBarButtonItem?
-    open var nextBarButton : IQBarButtonItem {
-        get {
-            if privateNextBarButton == nil {
-                privateNextBarButton = IQBarButtonItem(image: nil, style: .plain, target: nil, action: nil)
-                privateNextBarButton?.accessibilityLabel = "Toolbar Next Button"
-            }
-            return privateNextBarButton!
-        }
+    open var title : String? {
         
-        set (newValue) {
-            privateNextBarButton = newValue
+        didSet {
+            
+            if let newItems = items {
+                for item in newItems {
+                    
+                    if let newItem = item as? IQTitleBarButtonItem {
+                        newItem.title = title
+                        break
+                    }
+                }
+            }
         }
     }
     
-    /**
-     Title bar button of toolbar.
-     */
-    private var privateTitleBarButton: IQTitleBarButtonItem?
-    open var titleBarButton : IQTitleBarButtonItem {
-        get {
-            if privateTitleBarButton == nil {
-                privateTitleBarButton = IQTitleBarButtonItem(title: nil)
-                privateTitleBarButton?.accessibilityLabel = "Toolbar Title Button"
-            }
-            return privateTitleBarButton!
-        }
-        
-        set (newValue) {
-            privateTitleBarButton = newValue
-        }
-    }
-    
-    /**
-     Done bar button of toolbar.
-     */
-    private var privateDoneBarButton: IQBarButtonItem?
-    open var doneBarButton : IQBarButtonItem {
-        get {
-            if privateDoneBarButton == nil {
-                privateDoneBarButton = IQBarButtonItem(title: nil, style: .done, target: nil, action: nil)
-                privateDoneBarButton?.accessibilityLabel = "Toolbar Done Button"
-            }
-            return privateDoneBarButton!
-        }
-        
-        set (newValue) {
-            privateDoneBarButton = newValue
-        }
-    }
+    open var doneTitle : String?
+    open var doneImage : UIImage?
 
+    /**
+     Optional target & action to behave toolbar title button as clickable button
+     
+     @param target Target object.
+     @param action Target Selector.
+     */
+    open func setCustomToolbarTitleTarget(_ target: AnyObject?, action: Selector?) {
+        toolbarTitleInvocation = (target, action)
+    }
+    
+    /**
+     Customized Invocation to be called on title button action. titleInvocation is internally created using setTitleTarget:action: method.
+     */
+    open var toolbarTitleInvocation : (target: AnyObject?, action: Selector?) {
+        get {
+            let target: AnyObject? = objc_getAssociatedObject(self, &kIQToolbarTitleInvocationTarget) as AnyObject?
+            var action : Selector?
+            
+            if let selectorString = objc_getAssociatedObject(self, &kIQToolbarTitleInvocationSelector) as? String {
+                action = NSSelectorFromString(selectorString)
+            }
+            
+            return (target: target, action: action)
+        }
+        set(newValue) {
+            objc_setAssociatedObject(self, &kIQToolbarTitleInvocationTarget, newValue.target, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            
+            if let unwrappedSelector = newValue.action {
+                objc_setAssociatedObject(self, &kIQToolbarTitleInvocationSelector, NSStringFromSelector(unwrappedSelector), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            } else {
+                objc_setAssociatedObject(self, &kIQToolbarTitleInvocationSelector, nil, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            }
+            
+            if let unwrappedItems = items {
+                for item in unwrappedItems {
+                    
+                    if let newItem = item as? IQTitleBarButtonItem {
+                        newItem.titleInvocation = newValue
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
-        _ = IQToolbar._classInitialize
         super.init(frame: frame)
         
         sizeToFit()
@@ -131,7 +141,6 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        _ = IQToolbar._classInitialize
         super.init(coder: aDecoder)
 
         sizeToFit()
@@ -160,10 +169,20 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
     override open var barStyle: UIBarStyle {
         didSet {
             
-            if barStyle == .default {
-                titleBarButton.selectableTextColor = UIColor.init(colorLiteralRed: 0.0, green: 0.5, blue: 1.0, alpha: 1)
-            } else {
-                titleBarButton.selectableTextColor = UIColor.yellow
+            if let unwrappedItems = items {
+                for item in unwrappedItems {
+                    
+                    if let newItem = item as? IQTitleBarButtonItem {
+
+                        if barStyle == .default {
+                            newItem.selectableTextColor = UIColor.init(colorLiteralRed: 0.0, green: 0.5, blue: 1.0, alpha: 1)
+                        } else {
+                            newItem.selectableTextColor = UIColor.yellow
+                        }
+                        
+                        break
+                    }
+                }
             }
         }
     }
@@ -172,6 +191,13 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
 
         super.layoutSubviews()
         
+        struct InternalClass {
+            
+            static var IQUIToolbarTextButtonClass: AnyClass?   =   NSClassFromString("UIToolbarTextButton")
+            static var IQUIToolbarButtonClass: AnyClass?      =   NSClassFromString("UIToolbarButton")
+        }
+
+
         var leftRect = CGRect.null
         var rightRect = CGRect.null
         var isTitleBarButtonFound = false
@@ -192,13 +218,17 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
         
         for barButtonItemView in sortedSubviews {
 
-            if isTitleBarButtonFound == true {
+            if (isTitleBarButtonFound == true)
+            {
                 rightRect = barButtonItemView.frame
                 break
-            } else if type(of: barButtonItemView) === UIView.self {
+            }
+            else if (type(of: barButtonItemView) === UIView.self)
+            {
                 isTitleBarButtonFound = true
-                //If it's UIToolbarButton or UIToolbarTextButton (which actually UIBarButtonItem)
-            } else if barButtonItemView.isKind(of: UIControl.self) == true {
+            }
+            else if ((InternalClass.IQUIToolbarTextButtonClass != nil && barButtonItemView.isKind(of: InternalClass.IQUIToolbarTextButtonClass!) == true) || (InternalClass.IQUIToolbarButtonClass != nil && barButtonItemView.isKind(of: InternalClass.IQUIToolbarButtonClass!) == true))
+            {
                 leftRect = barButtonItemView.frame
             }
         }

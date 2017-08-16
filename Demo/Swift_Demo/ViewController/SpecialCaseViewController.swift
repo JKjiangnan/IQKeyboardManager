@@ -111,10 +111,12 @@ class SpecialCaseViewController: UIViewController, UISearchBarDelegate, UITextFi
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
         if (textField == customWorkTextField) {
-            let alertController = UIAlertController(title: "IQKeyboardManager", message: "Do your custom work here", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            
-            self.present(alertController, animated: true, completion: nil)
+            if(textField.isAskingCanBecomeFirstResponder == false) {
+                let alertController = UIAlertController(title: "IQKeyboardManager", message: "Do your custom work here", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
             
             return false
         } else {
@@ -123,9 +125,21 @@ class SpecialCaseViewController: UIViewController, UISearchBarDelegate, UITextFi
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        switchEnabled1.isEnabled = false
+        switchEnabled2.isEnabled = false
+        switchEnabled3.isEnabled = false
+        switchInteraction1.isEnabled = false
+        switchInteraction2.isEnabled = false
+        switchInteraction3.isEnabled = false
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        switchEnabled1.isEnabled = true
+        switchEnabled2.isEnabled = true
+        switchEnabled3.isEnabled = true
+        switchInteraction1.isEnabled = true
+        switchInteraction2.isEnabled = true
+        switchInteraction3.isEnabled = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -13,6 +13,7 @@
 
 @interface CustomViewController ()<UIPopoverPresentationControllerDelegate>
 {
+    IBOutlet UIView *settingsView;
     IQKeyboardReturnKeyHandler *returnHandler;
     
     IBOutlet UISwitch *switchDisableViewController;
@@ -25,10 +26,11 @@
     IBOutlet UISwitch *switchEnableTouchResign;
     
     IBOutlet UISwitch *switchAllowPreviousNext;
+    
+    
+    
+    IBOutlet NSLayoutConstraint *settingsTopConstraint;
 }
-
-@property(nonatomic, strong) IBOutlet NSLayoutConstraint *settingsTopConstraint;
-@property(nonatomic, strong) IBOutlet UIView *settingsView;
 
 @end
 
@@ -37,10 +39,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.settingsView.layer.shadowColor = [[UIColor blackColor] CGColor];
-    self.settingsView.layer.shadowOffset = CGSizeZero;
-    self.settingsView.layer.shadowRadius = 5.0;
-    self.settingsView.layer.shadowOpacity = 0.5;
+    settingsView.layer.shadowColor = [[UIColor blackColor] CGColor];
+    settingsView.layer.shadowOffset = CGSizeZero;
+    settingsView.layer.shadowRadius = 5.0;
+    settingsView.layer.shadowOpacity = 0.5;
     
     returnHandler = [[IQKeyboardReturnKeyHandler alloc] initWithViewController:self];
     returnHandler.lastTextFieldReturnKeyType = UIReturnKeyDone;
@@ -67,21 +69,19 @@
 {
     if (sender.state == UIGestureRecognizerStateEnded)
     {
-        __weak typeof(self) weakSelf = self;
-
         [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionAllowUserInteraction|7<<16 animations:^{
             
-            if (weakSelf.settingsTopConstraint.constant != 0)
+            if (settingsTopConstraint.constant != 0)
             {
-                weakSelf.settingsTopConstraint.constant = 0;
+                settingsTopConstraint.constant = 0;
             }
             else
             {
-                weakSelf.settingsTopConstraint.constant = -weakSelf.settingsView.frame.size.height+30;
+                settingsTopConstraint.constant = -settingsView.frame.size.height+30;
             }
             
-            [weakSelf.view setNeedsLayout];
-            [weakSelf.view layoutIfNeeded];
+            [self.view setNeedsLayout];
+            [self.view layoutIfNeeded];
             
         } completion:^(BOOL finished) {
             
