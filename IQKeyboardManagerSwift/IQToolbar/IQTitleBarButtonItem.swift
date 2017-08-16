@@ -22,15 +22,17 @@
 // THE SOFTWARE.
 
 
-import Foundation
 import UIKit
+
+private var kIQBarTitleInvocationTarget     = "kIQBarTitleInvocationTarget"
+private var kIQBarTitleInvocationSelector   = "kIQBarTitleInvocationSelector"
 
 open class IQTitleBarButtonItem: IQBarButtonItem {
    
-    open var titleFont : UIFont? {
+    open var font : UIFont? {
     
         didSet {
-            if let unwrappedFont = titleFont {
+            if let unwrappedFont = font {
                 _titleButton?.titleLabel?.font = unwrappedFont
             } else {
                 _titleButton?.titleLabel?.font = UIFont.systemFont(ofSize: 13)
@@ -59,13 +61,39 @@ open class IQTitleBarButtonItem: IQBarButtonItem {
     }
 
     /**
+     Optional target & action to behave toolbar title button as clickable button
+     
+     @param target Target object.
+     @param action Target Selector.
+     */
+    open func setTitleTarget(_ target: AnyObject?, action: Selector?) {
+        titleInvocation = (target, action)
+    }
+    
+    /**
      Customized Invocation to be called on title button action. titleInvocation is internally created using setTitleTarget:action: method.
      */
-    override open var invocation : (target: AnyObject?, action: Selector?) {
-
-        didSet {
+    open var titleInvocation : (target: AnyObject?, action: Selector?) {
+        get {
+            let target: AnyObject? = objc_getAssociatedObject(self, &kIQBarTitleInvocationTarget) as AnyObject?
+            var action : Selector?
             
-            if (invocation.target == nil || invocation.action == nil)
+            if let selectorString = objc_getAssociatedObject(self, &kIQBarTitleInvocationSelector) as? String {
+                action = NSSelectorFromString(selectorString)
+            }
+            
+            return (target: target, action: action)
+        }
+        set(newValue) {
+            objc_setAssociatedObject(self, &kIQBarTitleInvocationTarget, newValue.target, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            
+            if let unwrappedSelector = newValue.action {
+                objc_setAssociatedObject(self, &kIQBarTitleInvocationSelector, NSStringFromSelector(unwrappedSelector), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            } else {
+                objc_setAssociatedObject(self, &kIQBarTitleInvocationSelector, nil, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            }
+            
+            if (newValue.target == nil || newValue.action == nil)
             {
                 self.isEnabled = false
                 _titleButton?.isEnabled = false
@@ -75,7 +103,7 @@ open class IQTitleBarButtonItem: IQBarButtonItem {
             {
                 self.isEnabled = true
                 _titleButton?.isEnabled = true
-                _titleButton?.addTarget(invocation.target, action: invocation.action!, for: .touchUpInside)
+                _titleButton?.addTarget(newValue.target, action: newValue.action!, for: .touchUpInside)
             }
         }
     }
@@ -87,7 +115,7 @@ open class IQTitleBarButtonItem: IQBarButtonItem {
         super.init()
     }
     
-    convenience init(title : String?) {
+    init(title : String?) {
 
         self.init(title: nil, style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
@@ -104,8 +132,8 @@ open class IQTitleBarButtonItem: IQBarButtonItem {
         _titleButton?.titleLabel?.textAlignment = .center
         _titleButton?.setTitle(title, for: UIControlState())
         _titleButton?.autoresizingMask = [.flexibleWidth,.flexibleHeight]
-        titleFont = UIFont.systemFont(ofSize: 13.0)
-        _titleButton?.titleLabel?.font = self.titleFont
+        font = UIFont.systemFont(ofSize: 13.0)
+        _titleButton?.titleLabel?.font = self.font
         _titleView?.addSubview(_titleButton!)
         customView = _titleView
     }

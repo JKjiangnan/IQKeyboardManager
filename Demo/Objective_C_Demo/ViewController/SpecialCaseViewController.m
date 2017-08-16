@@ -48,6 +48,8 @@
 
 - (IBAction)showAlertClicked:(UIButton *)sender
 {
+    [self.view endEditing:YES];
+
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"IQKeyboardManager" message:@"It doesn't affect UIAlertController (Doesn't add IQToolbar on it's textField" preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
@@ -132,11 +134,15 @@
 {
     if (textField == customWorkTextField)
     {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"IQKeyboardManager" message:@"Do your custom work here" preferredStyle:UIAlertControllerStyleAlert];
-        
-        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
+        if (textField.isAskingCanBecomeFirstResponder == NO)
+        {
+////            //Do your work on tapping textField.
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"IQKeyboardManager" message:@"Do your custom work here" preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
 
         return NO;
     }

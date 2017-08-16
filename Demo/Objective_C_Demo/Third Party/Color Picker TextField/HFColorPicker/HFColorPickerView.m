@@ -152,13 +152,13 @@
     }
 }
 
-- (void)selectButton:(HFColorButton *)aButton
+- (void)selectButton:(HFColorButton *)button
 {
     for (HFColorButton* button in self.colorButtons)
     {
         button.selected = NO;
     }
-    aButton.selected = YES;
+    button.selected = YES;
 }
 
 @end
